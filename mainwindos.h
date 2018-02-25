@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*================================================================
 *   Copyright (C) 2018 Vertiv Tech Co Ltd. All rights reserved.
 *   
@@ -47,3 +48,4 @@ class MainWindow : public QMainWindow
 };
 
 #endif //MAINWINDOS_H
+||||||| merged common ancestors

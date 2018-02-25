@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*================================================================
 *   Copyright (C) 2018 Vertiv Tech Co Ltd. All rights reserved.
 *   
@@ -287,3 +288,5 @@ void Dialog::keyPressEvent(QKeyEvent *event)
         this->accept(); //该槽函数会返回QDialog::Accept值，则可以继续往下操作
     }
 }
+||||||| merged common ancestors
+
