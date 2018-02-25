@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*================================================================
 *   Copyright (C) 2018 Vertiv Tech Co Ltd. All rights reserved.
 *   
@@ -24,4 +23,3 @@ int main(int argc , char *argv[])
     }else
         return 0;
 }
-||||||| merged common ancestors

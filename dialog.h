@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*================================================================
 *   Copyright (C) 2018 Vertiv Tech Co Ltd. All rights reserved.
 *   
@@ -80,4 +79,3 @@ class Dialog : public QDialog
 };
 
 #endif //DIALOG_H
-||||||| merged common ancestors

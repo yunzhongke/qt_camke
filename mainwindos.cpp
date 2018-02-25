@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*================================================================
 *   Copyright (C) 2018 Vertiv Tech Co Ltd. All rights reserved.
 *   
@@ -136,4 +135,3 @@ MainWindow::~MainWindow()
 {
 
 }
-||||||| merged common ancestors
