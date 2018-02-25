@@ -240,8 +240,8 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent)
     // 禁止点击该图标按钮
     this->mTitle_icon->setEnabled(false);
 
-    // 信号与槽关联
-    connect(mclose_btn , &QPushButton::clicked , this , &Dialog::accept);
+    // 信号与槽关联 reject()槽--》退出应用程序
+    connect(mclose_btn , &QPushButton::clicked , this , &Dialog::reject);
 }
 
 Dialog::~Dialog()
@@ -274,4 +274,16 @@ void Dialog::mouseReleaseEvent(QMouseEvent *event)
     Q_UNUSED(event);
     QApplication::restoreOverrideCursor(); ///< 恢复鼠标形状 
     this->press = false;
+}
+
+void Dialog::keyPressEvent(QKeyEvent *event)
+{
+    // Esc键
+    if (event->key() == Qt::Key_Escape)
+        this->reject(); //该槽函数会返回QDialog::Rejected值，则主窗口关闭
+    // 回车键
+    else if (event->key() == Qt::Key_Return){
+        //先获取文本框的账号和密码
+        this->accept(); //该槽函数会返回QDialog::Accept值，则可以继续往下操作
+    }
 }

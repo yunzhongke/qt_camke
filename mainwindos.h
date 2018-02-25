@@ -25,9 +25,22 @@ class MainWindow : public QMainWindow
         ~MainWindow();
         //修改绘图事件，绘制背景图片
         void paintEvent(QPaintEvent *);
+        //鼠标按下事件
+        void mousePressEvent(QMouseEvent *);
+        //鼠标移动事件
+        void mouseMoveEvent(QMouseEvent *);
+        //鼠标释放事件
+        void mouseReleaseEvent(QMouseEvent *);
 
     private:
        QGroupBox *mtitle_box; 
+       QPushButton *mTitle_icon;
+
+       bool press;///< 鼠标是否按下
+       QPoint mouse_pos_start; ///< 鼠标左键开始移动的初始位置
+       QPoint frame_pos_start; ///< 鼠标移动前整个框架相对桌面位置
+       
+       
 
     public slots:
         void open();

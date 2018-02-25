@@ -15,10 +15,11 @@
 int main(int argc , char *argv[])
 {
     QApplication a(argc , argv);
-    Dialog lg;
-    lg.show();
     MainWindow w;
-    w.show(); 
-
-    return a.exec();
+    Dialog lg;
+    if (lg.exec() == QDialog::Accepted){
+        w.show(); 
+        return a.exec();
+    }else
+        return 0;
 }

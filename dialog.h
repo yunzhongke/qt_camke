@@ -39,6 +39,9 @@ class Dialog : public QDialog
 
         // 鼠标释放事件
         void mouseReleaseEvent(QMouseEvent *event);
+
+        // 键盘按下事件
+        void keyPressEvent(QKeyEvent *);
         
     private:
         QLabel *mImageLable;///< 图片

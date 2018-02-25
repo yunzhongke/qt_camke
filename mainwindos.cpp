@@ -24,13 +24,32 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent)
             "QMenuBar{background-color:transparent;}"
     );
 
-    /*this->mtitle_box = new QGroupBox(this);
-    this->mtitle_box->installEventFilter(this);
-    this->mtitle_box->setGeometry(0 , 0 , width() , height() * 0.08);*/
+    /*this->mtitle_box = new QGroupBox(this);*/
+    //this->mtitle_box->installEventFilter(this);
+    /*this->mtitle_box->setGeometry(0 , 0 , width() , height() * 0.08);*/
 
+    /*
+     * @name 设置菜单栏、菜单
+     * @{ */ 
     QMenuBar *menu_bar = new QMenuBar(this);
     QMenu *file = menu_bar->addMenu(tr("&文件"));
-    menu_bar->setGeometry(20 , 20 , file->width() , file->height());
+    QMenu *edit = menu_bar->addMenu(tr("&编辑"));
+    QMenu *tool = menu_bar->addMenu(tr("&工具"));
+    QMenu *win = menu_bar->addMenu(tr("&窗口"));
+    menu_bar->setGeometry(0 , 25 , 0 , 0);
+    /*  @} */
+
+    /*
+     * @name 设置标题图标
+     * @{ */ 
+    this->mTitle_icon = new QPushButton(this);
+    this->mTitle_icon->setFocusPolicy(Qt::NoFocus);//不显示矩形虚线框
+    this->mTitle_icon->setStyleSheet("border:none");//隐藏边框线
+    this->mTitle_icon->setIcon(QIcon("../Images/pic/csdn.png"));//设置可缩放的图片
+    this->mTitle_icon->setGeometry(5 , 0 , 30 , 30);
+    this->mTitle_icon->setEnabled(false);//禁止点击该图标按钮
+    /*  @} */
+    
 
 #if 1
     //QMenu *file = this->menuBar()->addMenu(tr("&文件"));
@@ -58,6 +77,42 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent)
             //"border-width: 8px;border-image:url(../Images/pic/beijing.jpg) 8 8 8 8 "
             /*);*/
 #endif
+}
+
+/*
+ * @brief 鼠标按下事件 
+ *
+ * @param event 鼠标事件 
+ */
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton){
+        // 设置鼠标形状
+        QCursor cursor;
+        cursor.setShape(Qt::ClosedHandCursor);
+        QApplication::setOverrideCursor(cursor);
+        this->mouse_pos_start = event->globalPos();
+        this->frame_pos_start = this->frameGeometry().topLeft();
+        this->press = true;
+    }
+}
+
+/*
+ * @brief 鼠标移动事件
+ *
+ * @param event 鼠标事件
+ */
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    if (this->press){
+        this->move(this->frame_pos_start + event->globalPos() - this->mouse_pos_start);
+    }
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *)
+{
+    QApplication::restoreOverrideCursor(); // 恢复鼠标形状 
+    this->press = false;
 }
 
 /*
