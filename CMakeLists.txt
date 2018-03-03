@@ -16,5 +16,5 @@ if(Qt5Widgets_FOUND)
     message(STATUS ${Qt5Widgets_INCLUDE_DIRS})
 endif()
 
-add_executable(${PROJECT_NAME} dialog.cpp main.cpp mainwindos.cpp)
+add_executable(${PROJECT_NAME} passwd_line_edit.cpp dialog1.cpp dialog.cpp main.cpp mainwindos.cpp)
 target_link_libraries(${PROJECT_NAME} ${Qt5Widgets_LIBRARIES})

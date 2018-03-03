@@ -19,6 +19,7 @@
 #include <QtWidgets/QMenu>
 #include <QtCore/QtDebug>
 #include "dialog.h"
+#include "mainwindos.h"
 
 Dialog::Dialog(QWidget *parent) : QDialog(parent)
 {
@@ -242,6 +243,7 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent)
 
     // 信号与槽关联 reject()槽--》退出应用程序
     connect(mclose_btn , &QPushButton::clicked , this , &Dialog::reject);
+    //connect(this , &QDialog::accept , MainWindow , &MainWindow::show);
 }
 
 Dialog::~Dialog()
@@ -280,11 +282,11 @@ void Dialog::keyPressEvent(QKeyEvent *event)
 {
     // Esc键
     if (event->key() == Qt::Key_Escape)
-        this->reject(); //该槽函数会返回QDialog::Rejected值，则主窗口关闭
+        emit this->reject(); //发送信号，该槽函数会返回QDialog::Rejected值，则主窗口关闭
     // 回车键
     else if (event->key() == Qt::Key_Return){
         //先获取文本框的账号和密码
-        this->accept(); //该槽函数会返回QDialog::Accept值，则可以继续往下操作
+        emit this->accept(); //发送信号，该槽函数会返回QDialog::Accept值，则可以继续往下操作
     }
 }
 
