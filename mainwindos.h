@@ -17,6 +17,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtGui/QPaintEvent>
 
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

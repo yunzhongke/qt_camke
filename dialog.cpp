@@ -18,8 +18,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMenu>
 #include <QtCore/QtDebug>
+#include <unistd.h>
 #include "dialog.h"
-#include "mainwindos.h"
 
 Dialog::Dialog(QWidget *parent) : QDialog(parent)
 {
@@ -47,7 +47,7 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent)
     mWechat = new QPushButton(this);
     mLoginButton = new QPushButton(this);
     mUserLineEdit = new QLineEdit(this);
-    mPasswordLineEdit = new QLineEdit(this);
+    mPasswordLineEdit = new PasswdLineEdit(this);
     mAutoLoginCheckBox = new QCheckBox(this);
     mSystray = new QSystemTrayIcon(this);
     mtitle_box = new QGroupBox(this);
@@ -87,7 +87,7 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent)
     //设置文本
     mUserLineEdit->setPlaceholderText(QStringLiteral("输入用户名/邮箱手机号"));
     mPasswordLineEdit->setPlaceholderText(QStringLiteral("输入密码"));
-    mPasswordLineEdit->setEchoMode(QLineEdit::Password);
+    //mPasswordLineEdit->setEchoMode(QLineEdit::Password);
     mAutoLoginCheckBox->setText(QStringLiteral("下次自动登录"));
     mLoginButton->setText(QStringLiteral("登录"));
     mRegisterButton->setText(QStringLiteral("立即注册"));
@@ -243,7 +243,7 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent)
 
     // 信号与槽关联 reject()槽--》退出应用程序
     connect(mclose_btn , &QPushButton::clicked , this , &Dialog::reject);
-    //connect(this , &QDialog::accept , MainWindow , &MainWindow::show);
+
 }
 
 Dialog::~Dialog()

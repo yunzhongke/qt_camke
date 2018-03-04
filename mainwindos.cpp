@@ -17,12 +17,13 @@
 
 MainWindow::MainWindow(QWidget *parent):QMainWindow(parent)
 {
-    
+
     // 设置菜单栏和菜单项背景透明色
     setStyleSheet(
             "QMenuBar:item{background-color:transparent;}"
             "QMenuBar{background-color:transparent;}"
     );
+
 
     /*this->mtitle_box = new QGroupBox(this);*/
     //this->mtitle_box->installEventFilter(this);
@@ -76,6 +77,8 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent)
     /*setStyleSheet(*/
             //"border-width: 8px;border-image:url(../Images/pic/beijing.jpg) 8 8 8 8 "
             /*);*/
+    
+    move(0 , 0);
 #endif
 }
 
@@ -123,8 +126,14 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *)
 void MainWindow::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
-    QPixmap backimg("../Images/pic/beijing.jpg");
-    painter.drawPixmap(0 , 0 , QPixmap("../Images/pic/beijing.jpg"));
+    painter.setRenderHint(QPainter::Antialiasing);
+    
+    QPixmap backimg = QPixmap("../Images/pic/beijing.jpg").scaled( 
+            QApplication::desktop()->width() , // 获取整个屏幕的宽
+            QApplication::desktop()->width() , 
+            Qt::KeepAspectRatio);
+    painter.drawPixmap(0 , 0 , backimg);
+    
 }
 void MainWindow::open()
 {

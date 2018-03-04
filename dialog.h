@@ -20,6 +20,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtGui/QMouseEvent>
 #include <QtWidgets/QSystemTrayIcon>
+#include "passwd_line_edit.h"
 
 class QLineEdit;
 class QString;
@@ -61,7 +62,7 @@ class Dialog : public QDialog
         QPushButton *mWechat; ///< 微信
         QPushButton *mLoginButton; ///< 登陆
         QLineEdit *mUserLineEdit; ///< 输入账号
-        QLineEdit *mPasswordLineEdit; ///< 输入密码
+        PasswdLineEdit *mPasswordLineEdit; ///< 输入密码
         QCheckBox *mAutoLoginCheckBox; ///< 自动登陆
 
         bool press;  ///< 鼠标是否按下

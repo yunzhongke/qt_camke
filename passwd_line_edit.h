@@ -18,7 +18,7 @@ class PasswdLineEdit : public QLineEdit
 {
     Q_OBJECT
     public:
-        explicit PasswdLineEdit(QWidget *parent = 0 , int timeout = 100);
+        explicit PasswdLineEdit(QWidget *parent = 0 , int timeout = 500);
         ~PasswdLineEdit();
 
     private slots:
