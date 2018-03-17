@@ -12,6 +12,8 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QStyleOption>
+#include <QtWidgets/QDockWidget>
+#include <QtWidgets/QToolBox>
 #include "mainwindos.h"
 
 
@@ -77,7 +79,14 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent)
     /*setStyleSheet(*/
             //"border-width: 8px;border-image:url(../Images/pic/beijing.jpg) 8 8 8 8 "
             /*);*/
-    
+
+    /*QDockWidget *dock = new QDockWidget("Dock" , this);*/
+    //dock->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    /*dock->setAllowedAreas(Qt::LeftDockWidgetArea);*/
+
+    /*dock->setWidget(t);*/
+    //dock->setGeometry(0 , 50 , 200 ,
+           /*QApplication::desktop()->height() - 30); */
     move(0 , 0);
 #endif
 }

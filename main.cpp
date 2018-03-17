@@ -11,7 +11,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QSplashScreen>
 #include "dialog.h"
-//#include "dialog1.h"
+#include "dialog1.h"
 #include "mainwindos.h"
 
 int main(int argc , char *argv[])

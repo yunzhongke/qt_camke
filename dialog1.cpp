@@ -53,6 +53,16 @@ MyDialog::MyDialog(QWidget *parent):QDialog(parent)
     h1->setSpacing(20);
     h1->setMargin(50);
     setLayout(h1);
+
+    this->setStyleSheet("QDialog{"
+            "border-style:outset;"
+            "border-width:4px;"
+            "border-radius:10px;"
+            "border-color:rgba(255 , 255 , 255 , 30);"
+            "font: bold 14px;"
+            "color:rgba(0 , 0 , 0 ,100);"
+            "padding:6px;"
+            "}");
 }
 
 MyDialog::~MyDialog()
